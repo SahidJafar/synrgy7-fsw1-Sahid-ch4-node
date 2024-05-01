@@ -1,7 +1,7 @@
 const {luasKubus, volumeKubus} = require('./bangunRuang/kubus')
 const {luasBalok, volumeBalok} = require('./bangunRuang/balok')
 const {luasPrismaSegitiga, volumePrismaSegitiga} = require('./bangunRuang/prismaSegitiga')
-const {writeDataToFile, readDataToFile, getDatabyId, getDatabyName} = require('./people')
+const {writeDataToFile, readDataToFile, getDatabyId, getDatabyName, addData} = require('./people')
 
 const fs = require('fs')
 
@@ -52,5 +52,11 @@ writeDataToFile()
 readDataToFile()
 getDatabyId(5)
 getDatabyName()
+addData({
+    id: 11,
+    name: 'Sahid Jafar',
+    username: 'Sahid',
+    email: 'sahid11.sj@gmail.com'
+})
 
 

@@ -112,5 +112,23 @@ const getDatabyName = () =>{
     })
 }
 
-module.exports = {writeDataToFile, readDataToFile, getDatabyId, getDatabyName}
+// Add Data
+const addData = (payload) => {
+  fs.readFile("people.txt", 'utf-8', (err, data)=>{
+    if (err) {
+        console.log('Error Reading Data:', err);
+    } else {
+      const parsed = JSON.parse(data);
+      parsed.push(payload)
+
+      fs.writeFile("people.txt", JSON.stringify(parsed), 'utf-8', (err)=>{
+        if(err) console.log('Error Saving Data!')
+        else console.log(parsed)
+    })
+    }
+
+    })
+}
+
+module.exports = {writeDataToFile, readDataToFile, getDatabyId, getDatabyName, addData}
 
