@@ -69,6 +69,7 @@ const people = [
 const writeDataToFile = () =>{
     fs.writeFile("people.txt", JSON.stringify(people), 'utf-8', (err)=>{
         if(err) console.log('Error Saving Data!')
+        else console.log('Success Saving Data!')
     })
 }
 // ReadFile
