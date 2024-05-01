@@ -84,5 +84,33 @@ const readDataToFile = () =>{
     })
 }
 
-module.exports = {writeDataToFile, readDataToFile}
+// Detail by Id to Object
+const getDatabyId = (id) => {
+  fs.readFile("people.txt", 'utf-8', (err, data) => {
+    if (err) {
+      console.log('Error Reading Data:', err);
+  } else {
+      const person = JSON.parse(data).find(row => row.id === id);
+      if (person) {
+          console.log(person);
+      } else {
+          console.log('Person not found');
+      }
+  }
+  })
+}
+
+// Get Data by Name to Array
+const getDatabyName = () =>{
+  fs.readFile("people.txt", 'utf-8', (err, data)=>{
+    if (err) {
+        console.log('Error Reading Data:', err);
+    } else {
+        const parsed = JSON.parse(data);
+        console.log(parsed.map(row => row.name))
+    }
+    })
+}
+
+module.exports = {writeDataToFile, readDataToFile, getDatabyId, getDatabyName}
 

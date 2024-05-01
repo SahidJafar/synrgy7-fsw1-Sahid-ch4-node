@@ -1,7 +1,7 @@
 const {luasKubus, volumeKubus} = require('./bangunRuang/kubus')
 const {luasBalok, volumeBalok} = require('./bangunRuang/balok')
 const {luasPrismaSegitiga, volumePrismaSegitiga} = require('./bangunRuang/prismaSegitiga')
-const {writeDataToFile, readDataToFile} = require('./people')
+const {writeDataToFile, readDataToFile, getDatabyId, getDatabyName} = require('./people')
 
 const fs = require('fs')
 
@@ -50,5 +50,7 @@ fs.readFile("dummy.txt", "utf-8", (err, data) => {
 // People.js
 writeDataToFile()
 readDataToFile()
+getDatabyId(5)
+getDatabyName()
 
 
