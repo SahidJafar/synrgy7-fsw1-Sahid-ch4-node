@@ -1,7 +1,7 @@
 <h1 align="center">Chapter 4 Using Node.js 👋</h1>
 
 ## Installation
-💾 for node modules  
+💾 for install node modules  
 `npm install`
 
 ## Usage
