@@ -1,6 +1,8 @@
-const {luasKubus, volumeKubus} = require('./kubus')
-const {luasBalok, volumeBalok} = require('./balok')
-const {luasPrismaSegitiga, volumePrismaSegitiga} = require('./prismaSegitiga')
+const {luasKubus, volumeKubus} = require('./bangunRuang/kubus')
+const {luasBalok, volumeBalok} = require('./bangunRuang/balok')
+const {luasPrismaSegitiga, volumePrismaSegitiga} = require('./bangunRuang/prismaSegitiga')
+const {writeDataToFile, readDataToFile} = require('./people')
+
 const fs = require('fs')
 
 console.log("Luas Kubus :", luasKubus(5))
@@ -13,7 +15,7 @@ console.log("Volume Balok :", volumeBalok(2, 4, 6))
 // Syncronus
 fs.writeFileSync("result.txt", `Luas Balok: ${luasBalok(2,4,6)}`, 'utf-8');
 // Asyncronus
-// fs.writeFileSync("result.txt", `Luas Balok: ${luasBalok(2,4,6)}`, 'utf-8', (err) => {
+// fs.writeFile("result.txt", `Luas Balok: ${luasBalok(2,4,6)}`, 'utf-8', (err) => {
 //     if(err) console.log('Error Saving Data!')
 // });
 
@@ -27,4 +29,26 @@ console.log("fs readFileSync", fs.readFileSync("result.txt", "utf-8"))
 
 console.log("Luas Prisma Segitiga :", luasPrismaSegitiga(2, 4, 10, 6))
 console.log("Volume Prisma Segitiga :", volumePrismaSegitiga(2, 4, 6))
+
+// Object to String
+const person = {
+    name: 'Sahid',
+    age: 24
+}
+// Write
+fs.writeFile("dummy.txt", JSON.stringify(person), 'utf-8', (err) => {
+    if(err) console.log('Error Saving Data!')
+});
+// Read
+fs.readFile("dummy.txt", "utf-8", (err, data) => {
+    // console.log(JSON.parse(data))
+    const parsed = JSON.parse(data)
+    console.log(parsed.name)
+})
+
+
+// People.js
+writeDataToFile()
+readDataToFile()
+
 
